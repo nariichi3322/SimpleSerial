@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SimpleSerial.Class.ClassReadQueue">
+    <Position X="6.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAA=</HashCode>
+      <FileName>Class\ClassReadQueue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleSerial.Class.ClassSerialPort" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="0.5" Width="2" />
+    <Members>
+      <Method Name="ClassSerialPort" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAIAQAAAAAgAAAgiAAAAAAAAAQAAAEAAAA=</HashCode>
+      <FileName>Class\ClassSerialPort.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ReadQueue" />
+      <Property Name="Port" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Bottom" Position="0.1" />
+  </Class>
+  <Class Name="System.IO.Ports.SerialPort" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="SimpleSerial.ISimpleSerial">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAQAAAAAgAAAggAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>ISimpleSerial.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Microsoft JhengHei UI" Size="9" />
+</ClassDiagram>
