@@ -2,7 +2,7 @@
 using System.IO;
 using System.IO.Ports;
 
-namespace SimpleSerial.Class
+namespace SimpleSerial.Serial
 {
     /// <summary>
     /// Implement of SimpleSerial.

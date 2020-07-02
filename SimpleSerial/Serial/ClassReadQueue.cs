@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace SimpleSerial.Class
+namespace SimpleSerial.Serial
 {
     /// <summary>
     /// Implement of read queue.
