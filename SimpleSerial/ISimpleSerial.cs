@@ -9,7 +9,7 @@
         /// Get port list.
         /// </summary>
         /// <param name="PortList">[out]Port name array.</param>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         bool GetPortList(out string[] PortList);
 
         /// <summary>
@@ -22,27 +22,27 @@
         /// <summary>
         /// Open port.
         /// </summary>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         bool OpenPort();
 
         /// <summary>
         /// Close port.
         /// </summary>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         bool ClosePort();
 
         /// <summary>
         /// Write data to SerialPort.
         /// </summary>
         /// <param name="Data">[in]Data byte.</param>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         bool Write(byte Data);
 
         /// <summary>
         /// Read data from SerialPort.
         /// </summary>
         /// <param name="Data">[out]Data byte.</param>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         bool Read(out byte Data);
     }
 }
