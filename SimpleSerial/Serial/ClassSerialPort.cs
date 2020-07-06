@@ -31,7 +31,7 @@ namespace SimpleSerial.Serial
         /// Get port list.
         /// </summary>
         /// <param name="PortList">[out]Port name array.</param>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         public bool GetPortList(out string[] PortList)
         {
             // Get a list of serial port names
@@ -59,7 +59,7 @@ namespace SimpleSerial.Serial
         /// <summary>
         /// Open port.
         /// </summary>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         public bool OpenPort()
         {
             try
@@ -80,7 +80,7 @@ namespace SimpleSerial.Serial
         /// <summary>
         /// Close port.
         /// </summary>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         public bool ClosePort()
         {
             try
@@ -102,7 +102,7 @@ namespace SimpleSerial.Serial
         /// Write data to SerialPort.
         /// </summary>
         /// <param name="Data">[in]Data byte.</param>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         public bool Write(byte Data)
         {
             byte[] DataArray = { Data };
@@ -118,7 +118,7 @@ namespace SimpleSerial.Serial
         /// Read data from SerialPort.
         /// </summary>
         /// <param name="Data">[out]Data byte.</param>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         public bool Read(out byte Data)
         {
             return ReadQueue.Take(out Data);
