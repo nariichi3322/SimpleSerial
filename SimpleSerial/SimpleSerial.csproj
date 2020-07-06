@@ -1,6 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net40;net45;net48;netcoreapp2.0;netcoreapp3.0;netcoreapp3.1;</TargetFrameworks>
+    <TargetFrameworks>net40;net45;net48;netcoreapp2.0;netcoreapp2.1;netcoreapp3.0;netcoreapp3.1;</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Simple serial port handler</Description>
     <Product>SimpleSerial</Product>
