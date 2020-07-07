@@ -1,11 +1,11 @@
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 
 namespace SimpleSerial.Serial
 {
     /// <summary>
     /// Implement of read queue.
     /// </summary>
-    class ClassReadQueue
+    internal class ClassReadQueue
     {
         /// <summary>
         /// Filed of ReadQueue.
