@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 
 namespace SimpleSerial.Serial
 {
@@ -24,21 +24,21 @@ namespace SimpleSerial.Serial
         /// <summary>
         /// ReadQueue Take method.
         /// </summary>
-        /// <param name="Data">[out]</param>
+        /// <param name="data">[out]</param>
         /// <returns>Bool - Return true for success.</returns>
-        public bool Take(out byte Data)
+        public bool Take(out byte data)
         {
-            return ReadQueue.TryTake(out Data, 100); // 100 miniseconds
+            return ReadQueue.TryTake(out data, 100); // 100 mini seconds
         }
 
         /// <summary>
         /// ReadQueue Add method.
         /// </summary>
-        /// <param name="Data">[in]</param>
+        /// <param name="data">[in]</param>
         /// <returns>Bool - Return true for success.</returns>
-        public bool Add(byte Data)
+        public bool Add(byte data)
         {
-            return ReadQueue.TryAdd(Data, 100); // 100 miniseconds
+            return ReadQueue.TryAdd(data, 100); // 100 mini seconds
         }
     }
 }
