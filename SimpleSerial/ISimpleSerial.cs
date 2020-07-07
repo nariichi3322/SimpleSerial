@@ -8,16 +8,16 @@
         /// <summary>
         /// Get port list.
         /// </summary>
-        /// <param name="PortList">[out]Port name array.</param>
+        /// <param name="portList">[out]Port name array.</param>
         /// <returns>Bool - Return true for success.</returns>
-        bool GetPortList(out string[] PortList);
+        bool GetPortList(out string[] portList);
 
         /// <summary>
         /// Initialize serial port.
         /// </summary>
-        /// <param name="PortName">[in]Name of select port.</param>
-        /// <param name="BaudRate">[in]Port baudrate.</param>
-        void PortInitialize(string PortName, int BaudRate);
+        /// <param name="portName">[in]Name of select port.</param>
+        /// <param name="baudRate">[in]Port baud rate.</param>
+        void PortInitialize(string portName, int baudRate);
 
         /// <summary>
         /// Open port.
@@ -34,15 +34,15 @@
         /// <summary>
         /// Write data to SerialPort.
         /// </summary>
-        /// <param name="Data">[in]Data byte.</param>
+        /// <param name="data">[in]Data byte.</param>
         /// <returns>Bool - Return true for success.</returns>
-        bool Write(byte Data);
+        bool Write(byte data);
 
         /// <summary>
         /// Read data from SerialPort.
         /// </summary>
-        /// <param name="Data">[out]Data byte.</param>
+        /// <param name="data">[out]Data byte.</param>
         /// <returns>Bool - Return true for success.</returns>
-        bool Read(out byte Data);
+        bool Read(out byte data);
     }
 }
