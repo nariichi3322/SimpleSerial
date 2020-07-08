@@ -5,7 +5,7 @@ namespace SimpleSerial.Serial
     /// <summary>
     /// Implement of read queue.
     /// </summary>
-    class ClassReadQueue
+    internal class ClassReadQueue
     {
         /// <summary>
         /// Filed of ReadQueue.
@@ -15,7 +15,7 @@ namespace SimpleSerial.Serial
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="size"></param>
+        /// <param name="size">[in]</param>
         public ClassReadQueue(int size = 256)
         {
             ReadQueue = new BlockingCollection<byte>(size);
@@ -24,21 +24,21 @@ namespace SimpleSerial.Serial
         /// <summary>
         /// ReadQueue Take method.
         /// </summary>
-        /// <param name="Data">[out]</param>
-        /// <returns></returns>
-        public bool Take(out byte Data)
+        /// <param name="data">[out]</param>
+        /// <returns>Bool - Return true for success.</returns>
+        public bool Take(out byte data)
         {
-            return ReadQueue.TryTake(out Data, 100); // 100 miniseconds
+            return ReadQueue.TryTake(out data, 100); // 100 mini seconds
         }
 
         /// <summary>
         /// ReadQueue Add method.
         /// </summary>
-        /// <param name="Data"></param>
-        /// <returns></returns>
-        public bool Add(byte Data)
+        /// <param name="data">[in]</param>
+        /// <returns>Bool - Return true for success.</returns>
+        public bool Add(byte data)
         {
-            return ReadQueue.TryAdd(Data, 100); // 100 miniseconds
+            return ReadQueue.TryAdd(data, 100); // 100 mini seconds
         }
     }
 }

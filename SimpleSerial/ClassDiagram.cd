@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="SimpleSerial.Class.ClassReadQueue">
-    <Position X="6.5" Y="0.5" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAA=</HashCode>
-      <FileName>Class\ClassReadQueue.cs</FileName>
-    </TypeIdentifier>
+  <Class Name="System.IO.Ports.SerialPort" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
   </Class>
-  <Class Name="SimpleSerial.Class.ClassSerialPort" BaseTypeListCollapsed="true">
-    <Position X="2.75" Y="0.5" Width="2" />
+  <Class Name="SimpleSerial.Serial.ClassSerialPort" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="2" />
     <Members>
       <Method Name="ClassSerialPort" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAIAQAAAAAgAAAgiAAAAAAAAAQAAAEAAAA=</HashCode>
-      <FileName>Class\ClassSerialPort.cs</FileName>
+      <FileName>Serial\ClassSerialPort.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="ReadQueue" />
       <Property Name="Port" />
+      <Property Name="ReadQueue" />
     </ShowAsAssociation>
     <Lollipop Orientation="Bottom" Position="0.1" />
   </Class>
-  <Class Name="System.IO.Ports.SerialPort" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier />
+  <Class Name="SimpleSerial.Serial.ClassReadQueue">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAA=</HashCode>
+      <FileName>Serial\ClassReadQueue.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="SimpleSerial.ISimpleSerial">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Position X="7.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAQAAAAAgAAAggAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>ISimpleSerial.cs</FileName>

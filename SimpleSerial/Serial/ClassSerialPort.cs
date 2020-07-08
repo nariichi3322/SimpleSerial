@@ -10,44 +10,46 @@ namespace SimpleSerial.Serial
     public class ClassSerialPort : ISimpleSerial
     {
         /// <summary>
-        /// ReadQueue object.
-        /// </summary>
-        private ClassReadQueue ReadQueue { get; } = new ClassReadQueue(256);
-
-        /// <summary>
         /// Constructor.
         /// </summary>
-        public ClassSerialPort()
+        /// <param name="queueSize">[in]Queue size.</param>
+        public ClassSerialPort(int queueSize = 256)
         {
             Port.DataReceived += SerialPortDataReceived;
+            ReadQueue = new ClassReadQueue(queueSize);
         }
+
+        /// <summary>
+        /// ReadQueue object.
+        /// </summary>
+        private ClassReadQueue ReadQueue { get; }
 
         /// <summary>
         /// Object of class SerialPort.
         /// </summary>
-        private SerialPort Port { get; set; } = new SerialPort();
+        private SerialPort Port { get; } = new SerialPort();
 
         /// <summary>
         /// Get port list.
         /// </summary>
-        /// <param name="PortList">[out]Port name array.</param>
-        /// <returns>Bool</returns>
-        public bool GetPortList(out string[] PortList)
+        /// <param name="portList">[out]Port name array.</param>
+        /// <returns>Bool - Return true for success.</returns>
+        public bool GetPortList(out string[] portList)
         {
             // Get a list of serial port names
-            PortList = SerialPort.GetPortNames();
+            portList = SerialPort.GetPortNames();
             return true;
         }
 
         /// <summary>
         /// Initialize serial port.
         /// </summary>
-        /// <param name="PortName">[in]Name of select port.</param>
-        /// <param name="BaudRate">[in]Port baudrate.</param>
-        public void PortInitialize(string PortName, int BaudRate)
+        /// <param name="portName">[in]Name of select port.</param>
+        /// <param name="baudRate">[in]Port baud rate.</param>
+        public void PortInitialize(string portName, int baudRate)
         {
-            Port.PortName = PortName;
-            Port.BaudRate = BaudRate;
+            Port.PortName = portName;
+            Port.BaudRate = baudRate;
             Port.Parity = Parity.None;
             Port.DataBits = 8;
             Port.StopBits = StopBits.One;
@@ -59,7 +61,7 @@ namespace SimpleSerial.Serial
         /// <summary>
         /// Open port.
         /// </summary>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         public bool OpenPort()
         {
             try
@@ -72,7 +74,7 @@ namespace SimpleSerial.Serial
                 {
                     return false;
                 }
-                else throw ex;
+                throw;
             }
             return true;
         }
@@ -80,7 +82,7 @@ namespace SimpleSerial.Serial
         /// <summary>
         /// Close port.
         /// </summary>
-        /// <returns>Bool</returns>
+        /// <returns>Bool - Return true for success.</returns>
         public bool ClosePort()
         {
             try
@@ -93,7 +95,7 @@ namespace SimpleSerial.Serial
                 {
                     return false;
                 }
-                else throw ex;
+                throw;
             }
             return true;
         }
@@ -101,27 +103,23 @@ namespace SimpleSerial.Serial
         /// <summary>
         /// Write data to SerialPort.
         /// </summary>
-        /// <param name="Data">[in]Data byte.</param>
-        /// <returns>Bool</returns>
-        public bool Write(byte Data)
+        /// <param name="data">[in]Data byte.</param>
+        /// <returns>Bool - Return true for success.</returns>
+        public bool Write(byte data)
         {
-            byte[] DataArray = { Data };
-            try
-            {
-                Port.Write(DataArray, 0, 1);
-            }
-            catch { throw; }
+            byte[] dataArray = { data };
+            Port.Write(dataArray, 0, 1);
             return true;
         }
 
         /// <summary>
         /// Read data from SerialPort.
         /// </summary>
-        /// <param name="Data">[out]Data byte.</param>
-        /// <returns>Bool</returns>
-        public bool Read(out byte Data)
+        /// <param name="data">[out]Data byte.</param>
+        /// <returns>Bool - Return true for success.</returns>
+        public bool Read(out byte data)
         {
-            return ReadQueue.Take(out Data);
+            return ReadQueue.Take(out data);
         }
 
         /// <summary>
@@ -131,17 +129,13 @@ namespace SimpleSerial.Serial
         /// <param name="args">[in]</param>
         private void SerialPortDataReceived(object sender, SerialDataReceivedEventArgs args)
         {
-            try
+            var count = Port.BytesToRead;
+            var bytes = new byte[count];
+            Port.Read(bytes, 0, count);
+            foreach (var data in bytes)
             {
-                int Count = Port.BytesToRead;
-                byte[] Bytes = new byte[Count];
-                Port.Read(Bytes, 0, Count);
-                foreach (byte Data in Bytes)
-                {
-                    ReadQueue.Add(Data);
-                }
+                ReadQueue.Add(data);
             }
-            catch { throw; }
         }
     }
 }
