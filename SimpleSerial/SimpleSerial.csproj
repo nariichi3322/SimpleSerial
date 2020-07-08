@@ -13,7 +13,8 @@
     <PackageProjectUrl>https://github.com/nariichi3322/SimpleSerial</PackageProjectUrl>
     <RepositoryType>github</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageReleaseNotes>v0.1.3-alpha.2
+    <PackageReleaseNotes>v0.1.3
+- Add comment
 - Rename and Redefine type local variables
 - Fixed redundant try-catch
 - Add class access modifiers</PackageReleaseNotes>
